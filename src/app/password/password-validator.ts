@@ -2,13 +2,7 @@ import { AbstractControl } from '@angular/forms';
 import { IDifficulty } from '../interfaces/difficulty';
 import { IPattern } from '../interfaces/pattern';
 
-const passwordDiff: IDifficulty = {
-    easy: false,
-    medium: false,
-    strong: false
-}
-
-export const curDiff: IDifficulty = Object.assign({}, passwordDiff)
+export const passwordDiff: IDifficulty = { easy: false, medium: false, strong: false }
 
 export function passwordValidator(control: AbstractControl): { [key: string]: any } | null {
     const value = control.value;
@@ -39,19 +33,17 @@ export function passwordValidator(control: AbstractControl): { [key: string]: an
     for (const { pattern, name } of patterns) {
         if (pattern.test(value)) {
             if (name === 'letters' || name === 'digits' || name === 'symbols') {
-                curDiff.medium = curDiff.strong = false
-                curDiff.easy = true
+                passwordDiff.medium = passwordDiff.strong = false
+                passwordDiff.easy = true
             } else if (name === 'lettersAndDigits' || name === 'lettersAndSymbols' || name === 'digitsAndSymbols') {
-                curDiff.easy = curDiff.strong = false
-                curDiff.medium = true
+                passwordDiff.easy = passwordDiff.strong = false
+                passwordDiff.medium = true
             } else if (name === 'lettersAndDigitsAndSymbols') {
-                curDiff.easy = curDiff.medium = false
-                curDiff.strong = true
+                passwordDiff.easy = passwordDiff.medium = false
+                passwordDiff.strong = true
             } else {
-                curDiff.easy = curDiff.medium = curDiff.strong = false
-                console.log('1')
+                passwordDiff.easy = passwordDiff.medium = passwordDiff.strong = false
             }
-
             return { passwordValidator: { pattern: name } }
         }
     }

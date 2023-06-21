@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { passwordValidator, curDiff } from './password-validator';
+import { passwordValidator, passwordDiff } from './password-validator';
 import { IDifficulty } from '../interfaces/difficulty';
 import { Subscription } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class PasswordComponent implements OnInit, OnDestroy {
   public inputValue: string
   public form: FormGroup
   public password: FormControl
-  public level: IDifficulty = curDiff
+  public level: IDifficulty = passwordDiff
 
   public firstLevelColor: string = "#999999";
   public secondLevelColor: string = "#999999";
