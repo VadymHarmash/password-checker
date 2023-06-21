@@ -10,7 +10,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./password.component.scss']
 })
 export class PasswordComponent implements OnInit, OnDestroy {
-  public inputValue: string
   public form: FormGroup
   public password: FormControl
   public level: IDifficulty = passwordDiff
