@@ -1,25 +1,30 @@
-// import { Injectable } from '@angular/core';
-// import { IDifficulty } from '../interfaces/difficulty';
+import { Injectable } from '@angular/core';
+import { IDifficulty } from '../interfaces/difficulty';
+import { IPattern } from '../interfaces/pattern';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class DifficulyCheckService {
+@Injectable({
+    providedIn: 'root'
+})
+export class DifficulyCheckService {
 
-//   constructor() { }
+    constructor() { }
 
-//   checkLevel(patternName: string, passwordDiff: IDifficulty): void {
-//     if (patternName === 'letters' || patternName === 'digits' || patternName === 'symbols') {
-//       passwordDiff.medium = passwordDiff.strong = false
-//       passwordDiff.easy = true
-//     } else if (patternName === 'lettersAndDigits' || patternName === 'lettersAndSymbols' || patternName === 'digitsAndSymbols') {
-//       passwordDiff.easy = passwordDiff.strong = false
-//       passwordDiff.medium = true
-//     } else if (patternName === 'lettersAndDigitsAndSymbols') {
-//       passwordDiff.easy = passwordDiff.medium = false
-//       passwordDiff.strong = true
-//     } else {
-//       passwordDiff.easy = passwordDiff.medium = passwordDiff.strong = false
-//     }
-//   }
-// }
+    checkLevel(patterns: IPattern[], passwordDiff: IDifficulty, value: string): void {
+        for (const { pattern, name } of patterns) {
+            if (pattern.test(value)) {
+                if (name === 'letters' || name === 'digits' || name === 'symbols') {
+                    passwordDiff.medium = passwordDiff.strong = false
+                    passwordDiff.easy = true
+                } else if (name === 'lettersAndDigits' || name === 'lettersAndSymbols' || name === 'digitsAndSymbols') {
+                    passwordDiff.easy = passwordDiff.strong = false
+                    passwordDiff.medium = true
+                } else if (name === 'lettersAndDigitsAndSymbols') {
+                    passwordDiff.easy = passwordDiff.medium = false
+                    passwordDiff.strong = true
+                } else {
+                    passwordDiff.easy = passwordDiff.medium = passwordDiff.strong = false
+                }
+            }
+        }
+    }
+}

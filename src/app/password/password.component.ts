@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { passwordValidator, passwordDiff } from './password-validator';
+import { passwordValidator, passwordDiff, patterns } from './password-validator';
 import { IDifficulty } from '../interfaces/difficulty';
 import { Subscription } from 'rxjs';
+import { IPattern } from '../interfaces/pattern';
+import { DifficulyCheckService } from '../services/difficuly-check.service';
 
 @Component({
   selector: 'app-password',
@@ -12,7 +14,9 @@ import { Subscription } from 'rxjs';
 export class PasswordComponent implements OnInit, OnDestroy {
   public form: FormGroup
   public password: FormControl
+
   public level: IDifficulty = passwordDiff
+  public patterns: IPattern[] = patterns;
 
   public firstLevelColor: string = "#999999";
   public secondLevelColor: string = "#999999";
@@ -20,10 +24,13 @@ export class PasswordComponent implements OnInit, OnDestroy {
 
   private _subscription: Subscription
 
+  constructor(private difficultyCheck: DifficulyCheckService){}
+
   ngOnInit(): void {
     this.createFormControls()
     this.createForm()
     this._subscription = this.password.valueChanges.subscribe((value) => {
+      this.difficultyCheck.checkLevel(this.patterns, this.level, value)
       if (!value) {
         this.firstLevelColor = this.secondLevelColor = this.thirdLevelColor = '#999999'
       } else if (value.length < 8) {
