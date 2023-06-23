@@ -7,27 +7,14 @@ export const passwordDiff: IDifficulty = { easy: false, medium: false, strong: f
 export function passwordValidator(control: AbstractControl): { [key: string]: any } | null {
     const value = control.value;
 
-    // RegExps for easy password
-    const letters: RegExp = /^[A-Za-z]+$/;
-    const digits: RegExp = /^[0-9]+$/;
-    const symbols: RegExp = /^[ `'",~!@#\$%\^\&*\)\(+=._-]+$/;
-
-    // RegExps for medium password
-    const lettersAndDigits: RegExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/u;
-    const lettersAndSymbols: RegExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*()\-_=+{}\[\]|\:;"'<>,.?\/`~])[^0-9]*$/;
-    const digitsAndSymbols: RegExp = /^(?=.*\d)(?=.*[!@#$%^&*()\-_=+{}\[\]|\:;"'<>,.?\/`~])[^a-zA-Z]*$/;
-
-    // RegExps for hard password
-    const lettersAndDigitsAndSymbols: RegExp = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*()\-_=+{}\[\]|\:;"'<>,.?\/`~]).*$/;
-
     const patterns: IPattern[] = [
-        { pattern: letters, name: 'letters' },
-        { pattern: digits, name: 'digits' },
-        { pattern: symbols, name: 'symbols' },
-        { pattern: lettersAndDigits, name: 'lettersAndDigits' },
-        { pattern: lettersAndSymbols, name: 'lettersAndSymbols' },
-        { pattern: digitsAndSymbols, name: 'digitsAndSymbols' },
-        { pattern: lettersAndDigitsAndSymbols, name: 'lettersAndDigitsAndSymbols' }
+        { pattern: /^[A-Za-z]+$/, name: 'letters' },
+        { pattern: /^[0-9]+$/, name: 'digits' },
+        { pattern: /^[ `'",~!@#\$%\^\&*\)\(+=._-]+$/, name: 'symbols' },
+        { pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/u, name: 'lettersAndDigits' },
+        { pattern: /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*()\-_=+{}\[\]|\:;"'<>,.?\/`~])[^0-9]*$/, name: 'lettersAndSymbols' },
+        { pattern: /^(?=.*\d)(?=.*[!@#$%^&*()\-_=+{}\[\]|\:;"'<>,.?\/`~])[^a-zA-Z]*$/, name: 'digitsAndSymbols' },
+        { pattern: /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*()\-_=+{}\[\]|\:;"'<>,.?\/`~]).*$/, name: 'lettersAndDigitsAndSymbols' }
     ];
 
     for (const { pattern, name } of patterns) {
