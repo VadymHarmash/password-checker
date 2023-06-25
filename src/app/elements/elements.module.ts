@@ -10,6 +10,7 @@ import { AllFormFieldsComponent } from './form/all-form-fields/all-form-fields.c
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordIndicatorsComponent } from './form/password-indicators/password-indicators.component';
 import { PasswordMessagesComponent } from './form/password-messages/password-messages.component';
+import { AgeFieldComponent } from './form/age-field/age-field.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { PasswordMessagesComponent } from './form/password-messages/password-mes
     AllFormFieldsComponent,
     PasswordIndicatorsComponent,
     PasswordMessagesComponent,
+    AgeFieldComponent,
   ],
   imports: [
     CommonModule,

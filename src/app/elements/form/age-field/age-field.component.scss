@@ -1,0 +1,23 @@
+@import "../form.component";
+
+.age{
+    &__wrapper{
+        @extend %center;
+    }
+    &__controller{
+        @extend %center;
+        flex-direction: row;
+        gap: 10px;
+        input, button{
+            text-align: center;
+            width: 25%;
+            border: 1px #000000 solid;
+        }
+        button{
+            cursor: pointer;
+        }
+    }
+    h1{
+        margin-bottom: 20px;
+    }
+}

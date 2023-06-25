@@ -3,8 +3,8 @@
         <div class="name__wrapper">
             <form novalidate>
                 <div class="name__input">
-                    <input type="text" name="nameInput" [(ngModel)]="value" #nameInput> {{value}}
-                    <div class="name__input__message">Enter your name</div>
+                    <input type="text" name="nameInput" [(ngModel)]="value" #nameInput>
+                    <div *ngIf="!name" class="name__input__message">Enter your name</div>
                 </div>
             </form>
         </div>

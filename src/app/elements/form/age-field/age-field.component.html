@@ -1,0 +1,12 @@
+<div class="age">
+    <div class="container">
+        <h1>Enter your age</h1>
+        <div class="age__wrapper">
+            <div class="age__controller">
+                <button class="age__button" (click)="updateValue(+value - 1)">-</button>
+                <input class="age__input" [ngModel]="value" (ngModelChange)="updateValue($event)" type="string">
+                <button class="age__button" (click)="updateValue(+value + 1)">+</button>
+            </div>
+        </div>
+    </div>
+</div>
