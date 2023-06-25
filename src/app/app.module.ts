@@ -6,22 +6,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PasswordComponent } from './password/password.component';
-import { PasswordModule } from './password/password.module';
-import { IndicatorsComponent } from './indicators/indicators.component';
+import { ElementsModule } from './elements/elements.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PasswordComponent,
-    IndicatorsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ElementsModule,
     FormsModule,
     ReactiveFormsModule,
-    PasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent]

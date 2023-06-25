@@ -1,16 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { passwordValidator, passwordDiff, patterns } from './password-validator';
-import { IDifficulty } from '../interfaces/difficulty';
 import { Subscription } from 'rxjs';
-import { IPattern } from '../interfaces/pattern';
+import { IDifficulty } from 'src/app/interfaces/difficulty';
+import { IPattern } from 'src/app/interfaces/pattern';
+import { passwordDiff, passwordValidator, patterns } from 'src/app/validators/password-validator';
 
 @Component({
-  selector: 'app-password',
-  templateUrl: './password.component.html',
-  styleUrls: ['./password.component.scss']
+  selector: 'app-password-field',
+  templateUrl: './password-field.component.html',
+  styleUrls: ['./password-field.component.scss']
 })
-export class PasswordComponent implements OnInit, OnDestroy {
+export class PasswordFieldComponent implements OnInit, OnDestroy {
   public form: FormGroup
   public password: FormControl
 
@@ -21,7 +21,7 @@ export class PasswordComponent implements OnInit, OnDestroy {
 
   private _subscription: Subscription
 
-  constructor(){}
+  constructor() { }
 
   ngOnInit(): void {
     this.createFormControls()

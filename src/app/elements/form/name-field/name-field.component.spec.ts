@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PasswordComponent } from './password.component';
+import { NameFieldComponent } from './name-field.component';
 
-describe('PasswordComponent', () => {
-  let component: PasswordComponent;
-  let fixture: ComponentFixture<PasswordComponent>;
+describe('NameFieldComponent', () => {
+  let component: NameFieldComponent;
+  let fixture: ComponentFixture<NameFieldComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PasswordComponent ]
+      declarations: [ NameFieldComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PasswordComponent);
+    fixture = TestBed.createComponent(NameFieldComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

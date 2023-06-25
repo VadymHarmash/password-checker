@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IndicatorsComponent } from './indicators.component';
+import { AllFormFieldsComponent } from './all-form-fields.component';
 
-describe('IndicatorsComponent', () => {
-  let component: IndicatorsComponent;
-  let fixture: ComponentFixture<IndicatorsComponent>;
+describe('AllFormFieldsComponent', () => {
+  let component: AllFormFieldsComponent;
+  let fixture: ComponentFixture<AllFormFieldsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IndicatorsComponent ]
+      declarations: [ AllFormFieldsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(IndicatorsComponent);
+    fixture = TestBed.createComponent(AllFormFieldsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

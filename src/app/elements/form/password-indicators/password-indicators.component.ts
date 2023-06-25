@@ -1,25 +1,24 @@
-import { Component, Input } from '@angular/core';
-import { IDifficulty } from '../interfaces/difficulty';
-import { Subscription } from 'rxjs';
-import { DifficulyCheckService } from '../services/difficuly-check.service';
-import { IPattern } from '../interfaces/pattern';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { IDifficulty } from 'src/app/interfaces/difficulty';
+import { IPattern } from 'src/app/interfaces/pattern';
+import { DifficulyCheckService } from 'src/app/services/difficuly-check.service';
 
 @Component({
-  selector: 'app-indicators',
-  templateUrl: './indicators.component.html',
-  styleUrls: ['./indicators.component.scss']
+  selector: 'app-password-indicators',
+  templateUrl: './password-indicators.component.html',
+  styleUrls: ['./password-indicators.component.scss']
 })
-export class IndicatorsComponent {
-
+export class PasswordIndicatorsComponent implements OnInit, OnDestroy {
   public firstLevelColor: string = "#999999";
   public secondLevelColor: string = "#999999";
   public thirdLevelColor: string = "#999999";
 
-  @Input() passwordLevel: IDifficulty
-  @Input() passwordValue: string
-  @Input() passwordPatterns: IPattern[]
-  @Input() passwordInput: FormControl
+  @Input() public passwordLevel: IDifficulty
+  @Input() public passwordValue: string
+  @Input() public passwordPatterns: IPattern[]
+  @Input() public passwordInput: FormControl
 
   private _subscription: Subscription
 
