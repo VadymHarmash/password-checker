@@ -1,0 +1,22 @@
+@import "../form.component";
+
+.name {
+    padding: 20px 0;
+    @extend %center;
+
+    &__wrapper {
+        @extend %center;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    &__input {
+        @extend %center;
+        gap: 10px;
+
+        &__message {
+            font-size: 1.25em;
+            font-weight: 600;
+        }
+    }
+}

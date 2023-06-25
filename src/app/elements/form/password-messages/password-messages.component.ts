@@ -19,7 +19,7 @@ export class PasswordMessagesComponent implements OnInit, OnDestroy {
   private _subscription: Subscription
 
   ngOnInit(): void {
-    this._subscription = this.passwordInput.valueChanges.subscribe((value) => {
+    this._subscription = this.passwordInput.valueChanges.subscribe((value: string) => {
       this.passwordValue = value
     })
   }
